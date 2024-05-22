@@ -115,14 +115,16 @@
 
           <div class="col-lg-6">
 
+            {% for user_skill in user.userprofile.skill.all %}
             <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
+              <span class="skill">{{user_skill.skill_name}}<i class="val">{{user_skill.hands_on}}%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{user_skill.hands_on}}" aria-valuemin="0" aria-valuemax="{{user_skill.hands_on}}"></div>
               </div>
             </div>
+            {%endfor%}
 
-            <div class="progress">
+            <!-- <div class="progress">
               <span class="skill">CSS <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
@@ -134,11 +136,11 @@
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
-            </div>
+            </div> -->
 
           </div>
 
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6">
 
             <div class="progress">
               <span class="skill">PHP <i class="val">80%</i></span>
@@ -161,7 +163,7 @@
               </div>
             </div>
 
-          </div>
+          </div> -->
 
         </div>
 
@@ -181,33 +183,35 @@
           <div class="col-lg-6">
             <h3 class="resume-title">Sumary</h3>
             <div class="resume-item pb-0">
-              <h4>Alice Barkley</h4>
+              <h4>Rashid Zada</h4>
               <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
               <p>
               <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
+                <li>Pakistan kpk ,Swat, Kabal</li>
+                <li>(92) 347-09835-67</li>
+                <li>rashidzada6@gmail.com</li>
               </ul>
               </p>
             </div>
 
             <h3 class="resume-title">Education</h3>
+            {% for user_education in user.userprofile.education.all%}
             <div class="resume-item">
-              <h4>Master of Fine Arts &amp; Graphic Design</h4>
-              <h5>2015 - 2016</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+              <h4>{{user_education.degree_name}} &amp; </h4>
+              <h5>{{user_education.started_at}} - {{user_education.ended_at}}</h5>
+              <p><em>{{user_education.institute}}, Pak</em></p>
               <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
             </div>
-            <div class="resume-item">
+            {%endfor%}
+            <!-- <div class="resume-item">
               <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
               <h5>2010 - 2014</h5>
               <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
               <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-            </div>
+            </div> -->
           </div>
-          <div class="col-lg-6">
-            <h3 class="resume-title">Professional Experience</h3>
+           <div class="col-lg-6">
+            <h3 class="resume-title">Professional Education && Experience</h3>
             <div class="resume-item">
               <h4>Senior graphic design specialist</h4>
               <h5>2019 - Present</h5>
@@ -234,7 +238,7 @@
               </ul>
               </p>
             </div>
-          </div>
+          </div> 
         </div>
 
       </div>
