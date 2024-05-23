@@ -115,14 +115,19 @@
 
           <div class="col-lg-6">
 
-            {% for user_skill in user.userprofile.skill.all %}
+          
+            {%for user in userprofiles%}
+            {% for user_skill in user.skill.all %}
+                   
             <div class="progress">
-              <span class="skill">{{user_skill.skill_name}}<i class="val">{{user_skill.hands_on}}%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="{{user_skill.hands_on}}" aria-valuemin="0" aria-valuemax="{{user_skill.hands_on}}"></div>
-              </div>
-            </div>
+             <span class="skill">{{user_skill.skill_name}}<i class="val">{{user_skill.hands_on}}%</i></span>
+             <div class="progress-bar-wrap">
+               <div class="progress-bar" role="progressbar" aria-valuenow="{{user_skill.hands_on}}" aria-valuemin="0" aria-valuemax="{{user_skill.hands_on}}"></div>
+             </div>
+           </div>
             {%endfor%}
+            {%endfor%}
+           
 
             <!-- <div class="progress">
               <span class="skill">CSS <i class="val">90%</i></span>
@@ -195,13 +200,15 @@
             </div>
 
             <h3 class="resume-title">Education</h3>
-            {% for user_education in user.userprofile.education.all%}
+            {% for user in userprofiles %}
+            {%for user_education in user.education.all%}
             <div class="resume-item">
-              <h4>{{user_education.degree_name}} &amp; </h4>
-              <h5>{{user_education.started_at}} - {{user_education.ended_at}}</h5>
-              <p><em>{{user_education.institute}}, Pak</em></p>
-              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-            </div>
+                <h4>{{user_education.degree_name}} &amp; </h4>
+                <h5>{{user_education.started_at}} - {{user_education.ended_at}}</h5>
+                <p><em>{{user_education.institute}}, Pak</em></p>
+                <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+              </div>
+            {%endfor%}
             {%endfor%}
             <!-- <div class="resume-item">
               <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
