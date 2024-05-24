@@ -48,3 +48,26 @@ class ProfessionalExperience(models.Model):
     def __str__(self):
         return f'{self.degree_name}'
 
+class Resume(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    cv = models.FileField(blank=True,upload_to='resume_files/')
+
+    def __str__(self):
+        return self.user.username
+
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    response = models.TextField(blank=True, null=True)
+    responded = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Contact from {self.name} - {self.subject}"
+
+    class Meta:
+        verbose_name = "Contact Inquiry"
+        verbose_name_plural = "Contact Inquiries"
